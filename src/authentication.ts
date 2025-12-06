@@ -1,41 +1,32 @@
-// src/authentication.ts
-import { app } from './firebase.js'; // <-- ADICIONADO .js
-import { db } from './firebase.js'; // <-- ADICIONADO .js
-// Import necessary Firebase Authentication functions for Email/Password
+import { app } from './firebase.js';
+import { db } from './firebase.js';
 import {
   getAuth,
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-  User, // Type for Firebase User object
-  Auth, // Type for Auth instance
+  User,
+  Auth,
 } from 'firebase/auth';
 
-// Import Firestore functions
-import { doc, setDoc } from 'firebase/firestore'; // <-- ADD THIS LINE: Import Firestore functions
+import { doc, setDoc } from 'firebase/firestore';
 
-// Get the Auth instance for your Firebase app
 export const auth: Auth = getAuth(app);
 
-// --- 1. User Registration (Email/Password) ---
-// Now also accepts a displayName to save to Firestore
 export async function registerUser(email: string, password: string, displayName: string): Promise<User | null> {
   try {
     const userCredential = await createUserWithEmailAndPassword(auth, email, password);
     const user = userCredential.user;
 
-    // <-- ADD THIS BLOCK: Save additional user info to Firestore -->
     if (user) {
-      await setDoc(doc(db, "users", user.uid), { // Create a document in 'users' collection with UID as ID
+      await setDoc(doc(db, "users", user.uid), {
         displayName: displayName,
         email: user.email,
         createdAt: new Date(),
-        // Add any other profile fields you need
       });
       console.log("User profile saved to Firestore for UID:", user.uid);
     }
-    // <-- END ADDITION -->
 
     console.log("User registered:", user);
     return user;
@@ -45,7 +36,6 @@ export async function registerUser(email: string, password: string, displayName:
   }
 }
 
-// --- 2. User Sign-in (Email/Password) ---
 export async function loginUser(email: string, password: string): Promise<User | null> {
   try {
     const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -57,8 +47,7 @@ export async function loginUser(email: string, password: string): Promise<User |
   }
 }
 
-// --- 3. User Sign-out ---
-export async function logoutUser(): Promise<void> {
+export async function logoutUser() {
   try {
     await signOut(auth);
     console.log("User logged out successfully.");
@@ -68,7 +57,6 @@ export async function logoutUser(): Promise<void> {
   }
 }
 
-// --- 4. Observe Auth State Changes (crucial for knowing if a user is logged in) ---
 export function subscribeToAuthChanges(callback: (user: User | null) => void): () => void {
   const unsubscribe = onAuthStateChanged(auth, (user) => {
     callback(user);

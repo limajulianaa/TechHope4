@@ -1,29 +1,25 @@
-// src/authentication.ts
-import { app } from './firebase.js'; // <-- ADICIONADO .js
-import { db } from './firebase.js'; // <-- ADICIONADO .js
-// Import necessary Firebase Authentication functions for Email/Password
+import { app } from './firebase.js';
+import { db } from './firebase.js';
 import { getAuth, createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut, onAuthStateChanged, } from 'firebase/auth';
-// Import Firestore functions
-import { doc, setDoc } from 'firebase/firestore'; // <-- ADD THIS LINE: Import Firestore functions
-// Get the Auth instance for your Firebase app
+import { doc, setDoc } from 'firebase/firestore';
+
 export const auth = getAuth(app);
-// --- 1. User Registration (Email/Password) ---
-// Now also accepts a displayName to save to Firestore
+
 export async function registerUser(email, password, displayName) {
     try {
         const userCredential = await createUserWithEmailAndPassword(auth, email, password);
         const user = userCredential.user;
-        // <-- ADD THIS BLOCK: Save additional user info to Firestore -->
+        
         if (user) {
             await setDoc(doc(db, "users", user.uid), {
                 displayName: displayName,
                 email: user.email,
                 createdAt: new Date(),
-                // Add any other profile fields you need
+                
             });
             console.log("User profile saved to Firestore for UID:", user.uid);
         }
-        // <-- END ADDITION -->
+        
         console.log("User registered:", user);
         return user;
     }
@@ -32,7 +28,7 @@ export async function registerUser(email, password, displayName) {
         throw error;
     }
 }
-// --- 2. User Sign-in (Email/Password) ---
+
 export async function loginUser(email, password) {
     try {
         const userCredential = await signInWithEmailAndPassword(auth, email, password);
@@ -44,7 +40,7 @@ export async function loginUser(email, password) {
         throw error;
     }
 }
-// --- 3. User Sign-out ---
+
 export async function logoutUser() {
     try {
         await signOut(auth);
@@ -55,11 +51,10 @@ export async function logoutUser() {
         throw error;
     }
 }
-// --- 4. Observe Auth State Changes (crucial for knowing if a user is logged in) ---
+
 export function subscribeToAuthChanges(callback) {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
         callback(user);
     });
     return unsubscribe;
 }
-//# sourceMappingURL=authentication.js.map

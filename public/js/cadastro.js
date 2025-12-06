@@ -1,45 +1,40 @@
-// src/cadastro.ts
-import { registerUser } from './authentication.js'; // <-- ADICIONADO .js
-// ... resto do código
-// Get references to the HTML elements
+import { registerUser } from './authentication.js';
+
 const registrationForm = document.getElementById('form');
 const nomeInput = document.getElementById('nome');
 const emailInput = document.getElementById('email');
 const senhaInput = document.getElementById('senha');
 const errorMessageDisplay = document.getElementById('cadastroErrorMessage');
-// Add an event listener for the form submission
+
 registrationForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent the default form submission behavior (page reload)
-    // Clear any previous error messages
+    event.preventDefault();
+
     errorMessageDisplay.textContent = '';
-    errorMessageDisplay.classList.add('hidden'); // Hide it
+    errorMessageDisplay.classList.add('hidden');
+
     const nome = nomeInput.value.trim();
     const email = emailInput.value.trim();
     const senha = senhaInput.value.trim();
-    // Basic client-side validation (Firebase Auth has its own validation too)
+
     if (!nome || !email || !senha) {
         errorMessageDisplay.textContent = 'Por favor, preencha todos os campos.';
         errorMessageDisplay.classList.remove('hidden');
         return;
     }
-    // You might want to add more robust password validation here (e.g., minimum length, complexity)
-    if (senha.length < 6) { // Firebase Auth requires at least 6 characters for passwords
+    if (senha.length < 6) {
         errorMessageDisplay.textContent = 'A senha deve ter no mínimo 6 caracteres.';
         errorMessageDisplay.classList.remove('hidden');
         return;
     }
     try {
-        // Call the registerUser function from your authentication module
-        const user = await registerUser(email, senha, nome); // Pass name to be saved to Firestore
+        const user = await registerUser(email, senha, nome);
         if (user) {
             console.log('Usuário cadastrado com sucesso!', user.email);
-            // Optionally, redirect the user to a dashboard or success page
-            window.location.href = '../pages/login.html'; // Example redirect
+            window.location.href = '../pages/Apresentacao.html';
         }
     }
     catch (error) {
         console.error('Erro no cadastro:', error);
-        // Display user-friendly error messages based on Firebase error codes
         let displayMessage = 'Ocorreu um erro ao tentar cadastrar.';
         switch (error.code) {
             case 'auth/email-already-in-use':
@@ -52,11 +47,10 @@ registrationForm.addEventListener('submit', async (event) => {
                 displayMessage = 'A senha é muito fraca. Escolha uma senha mais forte.';
                 break;
             default:
-                displayMessage = error.message; // Fallback to Firebase's message
+                displayMessage = error.message;
                 break;
         }
         errorMessageDisplay.textContent = displayMessage;
-        errorMessageDisplay.classList.remove('hidden'); // Show error message
+        errorMessageDisplay.classList.remove('hidden');
     }
 });
-//# sourceMappingURL=cadastro.js.map
