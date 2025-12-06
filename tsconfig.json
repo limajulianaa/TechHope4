@@ -1,0 +1,22 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",         // Queremos JavaScript moderno (ES2020)
+    "module": "ESNext",         // Como os módulos (import/export) devem ser tratados
+    "outDir": "./public/js",    // Onde os arquivos .js compilados devem ser colocados
+    "strict": true,             // Ativa todas as verificações de tipo rigorosas do TypeScript (boa prática!)
+    "esModuleInterop": true,    // Ajuda a lidar com importações/exportações
+    "skipLibCheck": true,       // Pula a verificação de tipo de bibliotecas (para evitar erros de terceiros)
+    "forceConsistentCasingInFileNames": true, // Garante que os nomes de arquivo sejam consistentes
+    "allowJs": true,            // Permite arquivos .js em seu projeto (se você tiver alguns misturados com .ts)
+    "noEmitOnError": false,    // NÃO impede a emissão de JS se houver erros de TS
+    "moduleResolution": "node", // Como os módulos são resolvidos
+    "rootDir": "./src",         // Onde os arquivos TypeScript (.ts) estão localizados
+    "sourceMap": true           // Gera mapas de origem para facilitar a depuração no navegador
+  },
+  "include": [
+    "src/**/*.ts"               // Diga à fábrica para incluir todos os arquivos .ts dentro da pasta 'src'
+  ],
+  "exclude": [
+    "node_modules"              // Diga à fábrica para IGNORAR a pasta node_modules
+  ]
+}

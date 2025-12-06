@@ -1,0 +1,158 @@
+[
+  {
+    "id": 1,
+    "titulo": "Capítulo-01: HTML e CSS",
+    "video": "../assets/video/video.mp4",
+    "material": "https://www.slideshare.net/slideshow/embed_code/key/4hRTNbQIfzYxpZ",
+    "exercicios": [
+
+      {
+        "pergunta": "Qual tag HTML é usada para criar um link?",
+        "alternativas":
+        
+        [ "a) img",
+          "b) a",
+          "c) link", 
+          "d) button", 
+          "e) p"]
+      },
+      {
+        "pergunta": "Qual tag HTML é usada para inserir uma imagem?",
+        "alternativas": ["<image>", "<picture>", "<img>", "<src>", "<href>"]
+      },
+
+      {
+        "pergunta": "Como você altera a cor do texto em CSS?",
+        "alternativas": ["Color: red", "Font-size: Large" , "Display: flex" , "Background-color: red" , "border-color: red"]
+
+      },
+
+      {
+        "pergunta": "O que faz a propriedade background-color no CSS?",
+        "alternativas": 
+        
+        [ "a) Muda a cor da borda do elemento", 
+          "b) Muda a cor do texto",
+          "c) Muda a cor de fundo do elemento", 
+          "d) Muda a cor da fonte", 
+          "e) Muda a cor das letras"]
+
+      },
+      {
+        "pergunta":"Como você cria a estrutura de uma lista não ordenada em HTML?",
+        "alternativas":
+        
+        ["a) <ul> - <li> - </ul>", 
+        " b) <ol> - <li> - </ol>", 
+        "c) <div> - </div", 
+        "d) <form> - <input> - <button> - </button> - </form>", 
+        "e) <p> - </p>"]
+
+      }
+    ]
+  },
+
+  {
+    "id": 2,
+    "titulo": "Capítulo-02: Javascript",
+    "video": "../assets/video/video.mp4",
+    "material": "https://www.example.com/material2",
+    "exercicios": [
+      {
+        "pergunta": "Qual a diferença entre var e let?",
+        "alternativas": [
+            "a) let pode ser redeclarado no mesmo escopo",
+            "b) var tem escopo de bloco",
+            "c) let possui escopo de bloco e var de função",
+            "d) Não existe diferença entre eles"]
+      },
+
+      {
+         "pergunta": "Qual comando é utilizado para selecionar um elemento pelo id no HTML?",
+         "alternativas":[
+                "a) document.getElementid",
+                "b) document.querySelectorAll",
+                "c) document.getElementById",
+                "d) document.selectId"
+         ]
+      },
+
+      {
+        "pergunta": "Qual é a diferença entre == e ===?",
+        "alternativas":[
+                "a) Nenhuma diferença",
+                "b) === compara só o valor",
+                "c) == compara só o tipo",
+                "d) === compara o valor e o tipo"   
+        ]
+      },
+
+      {
+        "pergunta": "Qual evento detecta clique?",
+        "alternativas": [
+                    "a) onpress",
+                    "b) onchange",
+                    "c) onclick",
+                    "d) onhover"
+        ]
+      },
+
+      {
+        "pergunta": "5- Como você soma dois números em JavaScript?",
+        "alternativas":[
+
+            "a) let total = a + b;",
+            "b) let total = a & b;",
+            "c) let total = a || b;",
+            "d) let total = a ++ b;"
+        ]    
+      }
+
+    ]
+  },
+
+  {
+    "id": 3,
+    "titulo": "Capítulo-03: Java",
+    "video": "video3.mp4",
+    "material": "",
+    "exercicios": [
+        {
+            "pergunta": "Qual comando é utilizado para selecionar um elemento pelo id no HTML?"
+            
+        }
+    ]
+  },
+
+  {
+    "id": 4,
+    "titulo": "Capítulo-04: Estruturas",
+    "video": "video4.mp4",
+    "material": "",
+    "exercicios": []
+  },
+
+  {
+    "id": 5,
+    "titulo": "Capítulo-05: Funções",
+    "video": "video5.mp4",
+    "material": "",
+    "exercicios": []
+  },
+
+  {
+    "id": 6,
+    "titulo": "Capítulo-06: DOM",
+    "video": "video6.mp4",
+    "material": "",
+    "exercicios": []
+  },
+
+  {
+    "id": 7,
+    "titulo": "Capítulo-07: Projeto Final",
+    "video": "video7.mp4",
+    "material": "",
+    "exercicios": []
+  }
+]

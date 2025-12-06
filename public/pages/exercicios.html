@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Capítulos</title>
+    <link rel="stylesheet" href="../css/exercicios.css"> 
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css">
+</head>
+
+<body>
+    
+    <header class="header">
+    <div class="logo">
+        <img src="../assets/img/logosemborda.png" alt="Logo do ENIAC"> 
+    </div>
+
+    <nav class="nav-bar">
+        <a href="../pages/homepage.html">página principal</a>
+    </nav>
+    <div class="icons">
+        <div class="icon-circle">
+            <i class="fa-solid fa-bell"></i>
+        </div>
+        <div class="icon-circle profile-icon">
+            <i class="fa-solid fa-user"></i>
+
+            <!-- AO CLICAR NO PERFIL ABRE UMA JANELINHA MAS NAO SEI FAZER ISSO :( -->
+            <!---<div class="profile-menu" id="profileMenu">
+                <a href="#">Meu Perfil</a>
+                <a href="#">Sair</a>
+            </div> --->
+
+        </div>
+    </div>
+</header>
+    <section class="capitulo">
+        <div class="capitulo-topo"> 
+            <h2 id="titulo-capitulo">Capítulo-01: HTML e CSS</h2>
+            <div class="nav-buttons">
+                <button class="nav-btn">&lt;</button>
+                <button class="nav-btn">&gt;</button>
+            </div>
+        </div>
+    </section>
+<section class="video-container">
+ <video 
+    id="video-player"
+    class="video-player"
+    controls
+>
+</video>
+</section>
+  <section class="section-two"> 
+    <div class="materiais">
+        <div>
+        <h3>Materiais:</h3> 
+        </div>   
+            <iframe 
+                id="material-iframe"
+                src="https://www.slideshare.net/slideshow/embed_code/key/4hRTNbQIfzYxpZ"
+                width="427" height="356" 
+                frameborder="0" 
+                marginwidth="0" marginheight="0" 
+                scrolling="no" 
+                allowfullscreen>
+        </iframe>
+        <div>
+            <strong>
+                <a href="https://pt.slideshare.net/slideshow/apresentao-html-e-css/47378139" 
+                   title="apresentao-html-e-css" target="_blank"> 
+                </a>
+            </strong> 
+        </div>
+    </div>
+</section>
+<section class="section-three">
+    <div class="exercicios">
+        
+    <div class="exercicios">
+        <h3>Exercícios:</h3>
+    <div id="lista-exercicios"></div>
+        <button class="submit-btn">Enviar Respostas</button>
+    </div>
+</section>
+
+    <script src="../js/exercicios.js"></script>
+</body>
+</html>
