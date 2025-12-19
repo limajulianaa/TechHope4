@@ -4,7 +4,7 @@ const menu = document.createElement("div");
 menu.classList.add("profile-menu");
 menu.innerHTML = `
     <a href="#">Meu Perfil</a>
-    <a href="../pages/login.html">Sair</a>
+    <a href="../pages/Apresentacao.html">Sair</a>
 `;
 
 profileIcon.appendChild(menu);
