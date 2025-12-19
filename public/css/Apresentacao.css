@@ -1,4 +1,4 @@
-<<<<<<< HEAD:Apresentacao.css
+
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
 
 
@@ -120,7 +120,19 @@ box-shadow: 0 0 8px gray;}
 body {
      padding-top: 80px;
      color: white;
+     animation: aparecerSuave 1.5s ease-out;
      
+}
+
+@keyframes aparecerSuave {
+    0% {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 button {
@@ -269,8 +281,7 @@ ul .p1{
         text-align: center;
         color: rgb(1, 67, 134);
     }
-
-=======
+    
 @import url('https://fonts.googleapis.com/css2?family=Courier+Prime:ital,wght@0,400;0,700;1,400;1,700&family=Jost:ital,wght@0,100..900;1,100..900&family=Noto+Sans+TC:wght@100..900&family=Noto+Serif+JP:wght@200..900&display=swap');
 
 
