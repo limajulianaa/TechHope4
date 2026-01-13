@@ -400,3 +400,4 @@ function validarRespostas() {
 
   alert(`Você acertou ${corretas} de ${cap.exercicios.length} questões.`);
 }
+
