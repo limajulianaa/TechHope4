@@ -530,3 +530,23 @@ body {
         padding: 8px;
     }
 }
+
+.exercicio {
+    margin-bottom: 20px;
+}
+
+.correta {
+    color: #155724;
+    background-color: #d4edda;
+    padding: 4px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
+
+.errada {
+    color: #721c24;
+    background-color: #f8d7da;
+    padding: 4px 6px;
+    border-radius: 4px;
+    display: inline-block;
+}
