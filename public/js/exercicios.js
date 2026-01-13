@@ -401,3 +401,45 @@ function validarRespostas() {
   alert(`Você acertou ${corretas} de ${cap.exercicios.length} questões.`);
 }
 
+function validarRespostas() {
+  const cap = CAPITULOS[capAtual];
+  let corretas = 0;
+
+  cap.exercicios.forEach((ex, i) => {
+    const radios = document.querySelectorAll(`input[name="q${i}"]`);
+    let explicacaoExibida = false;
+
+    radios.forEach(radio => {
+      const span = radio.nextElementSibling;
+
+      // Desabilita depois de enviar
+      radio.disabled = true;
+
+      // Marca a correta
+      if (Number(radio.value) === Number(ex.correta)) {
+        span.classList.add("correta");
+      }
+
+      // Se marcou errado
+      if (radio.checked && Number(radio.value) !== Number(ex.correta)) {
+        span.classList.add("errada");
+        
+        // Exibe a explicação para a resposta errada
+        if (!explicacaoExibida) {
+          const explicacaoDiv = document.createElement("div");
+          explicacaoDiv.classList.add("explicacao");
+          explicacaoDiv.innerHTML = `<p><strong>Explicação:</strong> ${ex.explicacao}</p>`;
+          span.parentElement.appendChild(explicacaoDiv);
+          explicacaoExibida = true;
+        }
+      }
+
+      // Conta acertos
+      if (radio.checked && Number(radio.value) === Number(ex.correta)) {
+        corretas++;
+      }
+    });
+  });
+
+  alert(`Você acertou ${corretas} de ${cap.exercicios.length} questões.`);
+}
