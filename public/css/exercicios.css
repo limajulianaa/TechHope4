@@ -572,3 +572,13 @@ label {
     margin-bottom: 8px; 
     display: block;
 }
+
+.explicacao {
+  font-size: 0.9em;
+  color:#721c24;
+  margin-top: 10px;
+  margin-left: 15px;
+  padding: 5px;
+  background-color: #f5c6cb;
+  border-radius: 5px;
+}
