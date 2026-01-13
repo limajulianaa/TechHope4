@@ -315,10 +315,11 @@ function carregarCapitulo(index) {
     let html = `<p><strong>${i + 1})</strong> ${ex.pergunta}</p>`;
     alternativas.forEach(a => {
       html += `
-        <label>
-          <input type="radio" name="q${i}" value="${a.id}">
-          ${a.texto}
-        </label><br>
+       <label>
+  <input type="radio" name="q${i}" value="${a.id}">
+  <span>${a.texto}</span>
+</label><br>
+
       `;
     });
 
@@ -366,3 +367,36 @@ navBtns[1].addEventListener("click", () => {
 submitBtn.addEventListener("click", validarRespostas);
 
 carregarCapitulo(capAtual);
+
+function validarRespostas() {
+  const cap = CAPITULOS[capAtual];
+  let corretas = 0;
+
+  cap.exercicios.forEach((ex, i) => {
+    const radios = document.querySelectorAll(`input[name="q${i}"]`);
+
+    radios.forEach(radio => {
+      const span = radio.nextElementSibling;
+
+      // desabilita depois de enviar
+      radio.disabled = true;
+
+      // marca a correta
+      if (Number(radio.value) === Number(ex.correta)) {
+        span.classList.add("correta");
+      }
+
+      // se marcou errado
+      if (radio.checked && Number(radio.value) !== Number(ex.correta)) {
+        span.classList.add("errada");
+      }
+
+      // conta acertos
+      if (radio.checked && Number(radio.value) === Number(ex.correta)) {
+        corretas++;
+      }
+    });
+  });
+
+  alert(`Você acertou ${corretas} de ${cap.exercicios.length} questões.`);
+}
