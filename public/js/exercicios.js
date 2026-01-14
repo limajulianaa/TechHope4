@@ -407,7 +407,6 @@ function validarRespostas() {
 
   cap.exercicios.forEach((ex, i) => {
     const radios = document.querySelectorAll(`input[name="q${i}"]`);
-    let explicacaoExibida = false;
 
     radios.forEach(radio => {
       const span = radio.nextElementSibling;
@@ -423,15 +422,6 @@ function validarRespostas() {
       // Se marcou errado
       if (radio.checked && Number(radio.value) !== Number(ex.correta)) {
         span.classList.add("errada");
-        
-        // Exibe a explicação para a resposta errada
-        if (!explicacaoExibida) {
-          const explicacaoDiv = document.createElement("div");
-          explicacaoDiv.classList.add("explicacao");
-          explicacaoDiv.innerHTML = `<p><strong>Explicação:</strong> ${ex.explicacao}</p>`;
-          span.parentElement.appendChild(explicacaoDiv);
-          explicacaoExibida = true;
-        }
       }
 
       // Conta acertos
